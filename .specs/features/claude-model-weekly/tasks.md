@@ -46,7 +46,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 **Tests**: unit/build — existing constructor and Codex/strip regression tests.
 **Gate**: build
 
-- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [x] Source checkpoint verified on Linux, committed, and pushed to the fork.
 - [ ] Native acceptance on Windows is pending.
 
 
@@ -61,7 +61,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 **Tests**: unit — fixture and missing/null/invalid/clamp/partial-payload cases.
 **Gate**: quick
 
-- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [x] Source checkpoint verified on Linux, committed, and pushed to the fork.
 - [ ] Native acceptance on Windows is pending.
 
 
@@ -75,7 +75,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 **Tests**: unit — boundary reset and existing freshness behavior.
 **Gate**: quick
 
-- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [x] Source checkpoint verified on Linux, committed, and pushed to the fork.
 - [ ] Native acceptance on Windows is pending.
 
 
@@ -88,7 +88,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 **Tests**: unit — reset text, both languages, absence, stale/error states, strip.
 **Gate**: build
 
-- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [x] Source checkpoint verified on Linux, committed, and pushed to the fork.
 - [ ] Native acceptance on Windows is pending.
 
 
@@ -113,5 +113,5 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 T1 includes compatibility changes only; T2/T3/T4 each include their behavior tests.
 T5 is documentation and release evidence. No test has been removed or weakened.
 The multi-file warnings reflect the shared type/localization compile boundaries.
-- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [x] Source checkpoint verified on Linux, committed, and pushed to the fork.
 - [ ] Native acceptance on Windows is pending.
