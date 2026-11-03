@@ -49,6 +49,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 - [x] Source checkpoint verified on Linux and prepared for commit/push.
 - [ ] Native acceptance on Windows is pending.
 
+
 ### T2: Parse reported Claude details
 **What**: Parse named model windows and extra-usage flag without fabricating data.
 **Where**: src/limits/claude.rs; tests/fixtures/claude_usage_models.json.
@@ -56,7 +57,9 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 **Requirement**: CCT-01, CCT-02, CCT-03
 **Tests**: unit — fixture and missing/null/invalid/clamp/partial-payload cases.
 **Gate**: quick
-- [ ] Full required checks and atomic commit/push recorded.
+
+- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [ ] Native acceptance on Windows is pending.
 
 ### T3: Age model windows independently
 **What**: Drop expired model windows while retaining unrelated readings and flag.
