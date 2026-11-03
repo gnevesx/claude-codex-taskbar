@@ -55,6 +55,7 @@ pub fn parse_claude_usage(v: &Value) -> Result<ProviderUsage, FetchError> {
     let usage = ProviderUsage {
         five_hour: parse_window(&v["five_hour"]),
         weekly: parse_window(&v["seven_day"]),
+        ..Default::default()
     };
     if usage.five_hour.is_none() && usage.weekly.is_none() && v.get("five_hour").is_none() {
         return Err(FetchError::BadResponse("unexpected usage format".into()));

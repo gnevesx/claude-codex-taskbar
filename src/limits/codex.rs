@@ -68,6 +68,7 @@ pub fn parse_codex_usage(v: &Value, now: i64) -> Result<ProviderUsage, FetchErro
     Ok(ProviderUsage {
         five_hour: parse(&rl["primary_window"]),
         weekly: parse(&rl["secondary_window"]),
+        ..Default::default()
     })
 }
 
@@ -86,6 +87,7 @@ fn session_line_limits(line: &str) -> Option<(ProviderUsage, i64)> {
         ProviderUsage {
             five_hour: parse(&rl["primary"]),
             weekly: parse(&rl["secondary"]),
+            ..Default::default()
         },
         at,
     ))

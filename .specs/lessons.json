@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "promote_threshold": 2,
+  "window_days": 45,
+  "quarantine_threshold": 2,
+  "next_id": 2,
+  "lessons": [
+    {
+      "id": "L-001",
+      "key": "ac_gap::when extending claude usage parsing update response validity checks and test each newly supported reading without legacy window keys",
+      "text": "When extending Claude usage parsing, update response-validity checks and test each newly supported reading without legacy window keys.",
+      "signal": "ac_gap",
+      "scope": "src/limits/claude.rs",
+      "status": "candidate",
+      "features": [
+        "claude-model-weekly"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        ".specs/features/claude-model-weekly/validation.md:17 (src/limits/claude.rs)"
+      ],
+      "created": "2026-11-03T21:43:36Z",
+      "last_seen": "2026-11-03T21:43:36Z"
+    }
+  ]
+}

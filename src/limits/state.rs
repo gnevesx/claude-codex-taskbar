@@ -40,6 +40,7 @@ pub fn age_status(status: &ProviderStatus, now: i64, max_age: i64) -> ProviderSt
         ProviderUsage {
             five_hour: keep(&usage.five_hour),
             weekly: keep(&usage.weekly),
+            ..Default::default()
         }
     };
     match status {
@@ -75,6 +76,7 @@ mod tests {
                 resets_at: Some(5000),
             }),
             weekly: None,
+            ..Default::default()
         }
     }
 
@@ -171,6 +173,7 @@ mod aging_tests {
                 used_pct: 30.0,
                 resets_at: Some(resetw),
             }),
+            ..Default::default()
         }
     }
 

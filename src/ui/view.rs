@@ -256,6 +256,7 @@ mod tests {
                 used_pct: week,
                 resets_at: None,
             }),
+            ..Default::default()
         }
     }
 
