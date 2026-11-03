@@ -1,7 +1,7 @@
 # Claude model weekly usage tasks
 
 ## Execution Protocol
-Use tlc-spec-driven. The existing implementation is uncommitted; these records
+Use tlc-spec-driven. The implementation is published as source checkpoints; these records
 make its remaining checks and publication traceable. Source checkpoints are published in order; native acceptance remains pending.
 Tools: GitHub connector, local Git/Rust tooling, independent Verifier.
 User authorized autonomous execution, tests, and the TLC workflow.
@@ -52,6 +52,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 
 
 
+
 ### T2: Parse reported Claude details
 **What**: Parse named model windows and extra-usage flag without fabricating data.
 **Where**: src/limits/claude.rs; tests/fixtures/claude_usage_models.json.
@@ -62,6 +63,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 
 - [x] Source checkpoint verified on Linux and prepared for commit/push.
 - [ ] Native acceptance on Windows is pending.
+
 
 
 
@@ -77,6 +79,7 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 - [ ] Native acceptance on Windows is pending.
 
 
+
 ### T4: Render localized usage details
 **What**: Add optional model and extra-usage tooltip lines in both languages.
 **Where**: src/ui/view.rs; src/ui/view/claude_tests.rs; src/i18n.rs.
@@ -88,14 +91,14 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 - [x] Source checkpoint verified on Linux and prepared for commit/push.
 - [ ] Native acceptance on Windows is pending.
 
+
 ### T5: Document and package the contribution
-**What**: Explain the new visible behavior and prepare the focused PR.
-**Where**: docs/claude-usage.md; README.md.
+**What**: Explain the new visible behavior and prepare the Windows handoff; PR follows native acceptance.
+**Where**: docs/claude-usage.md; docs/windows-validation.md; README.md.
 **Depends on**: T4
 **Requirement**: CCT-01 through CCT-07
 **Tests**: documentation review plus full existing automated suite.
 **Gate**: build
-- [ ] Independent final report, native QA, fork, atomic commits/push, PR recorded.
 
 ## Diagram-Definition Cross-Check
 | Task | Depends On | Diagram Shows | Result |
@@ -110,3 +113,5 @@ in T1/T4 are required to keep the shared type and localized renderer compilable.
 T1 includes compatibility changes only; T2/T3/T4 each include their behavior tests.
 T5 is documentation and release evidence. No test has been removed or weakened.
 The multi-file warnings reflect the shared type/localization compile boundaries.
+- [x] Source checkpoint verified on Linux and prepared for commit/push.
+- [ ] Native acceptance on Windows is pending.

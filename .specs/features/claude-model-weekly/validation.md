@@ -3,7 +3,7 @@
 **Result: FAIL** — complete native test execution and Windows visual QA pending.
 **Date:** 2026-11-03. **Verifier:** independent reviewer, not implementation author.
 **Spec:** `.specs/features/claude-model-weekly/spec.md`.
-**Diff range:** upstream `f5636ec7d9e5dfcaef6fac63ae83655c43184b56` to uncommitted tree,
+**Diff range:** upstream `f5636ec7d9e5dfcaef6fac63ae83655c43184b56` through the prepared feature draft,
 including new fixture, view test module, and user documentation.
 This is a progress report, not final completion. No tasks are marked done here.
 
@@ -81,10 +81,10 @@ Claude/Codex endpoints, or installed CLIs. Wine output is preserved in
 1. Run native MSVC format/clippy/tests/release gate and verify all expected tests.
 2. User tests tooltip languages, omission/reset/stale behavior, taskbar and DPI,
    recording screenshot and display scale as required by `CONTRIBUTING.md:83`.
-3. Fork is not created yet; no commits or pushes exist. Push only to user's fork.
+3. Fork is verified; source checkpoints are being published only to that fork.
 4. **Do not open a PR until the user reboots into Windows and performs native tests.**
 
-T1–T5 remain partial/uncommitted. The completion gate was run by the orchestrator
+Native acceptance of T1–T5 remains pending. The completion gate was run by the orchestrator
 and returned FAIL as expected; native evidence and final verification remain.
 Corrected parser-guard lesson recorded by `lessons.py` as L-001, candidate;
 environment/native-pending evidence does not establish another codebase defect.

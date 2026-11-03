@@ -5,7 +5,7 @@
 ## Handoff
 
 - **Feature**: Claude model weekly usage, issue #13.
-- **Phase / Task**: source checkpoint T4/T5; native acceptance remains pending.
+- **Phase / Task**: source checkpoint T5/T5; native acceptance remains pending.
 - **Fork**: https://github.com/gnevesx/claude-codex-taskbar (verified fork).
 - **Branch**: feat/claude-model-weekly-limits.
 - **Base**: f5636ec7d9e5dfcaef6fac63ae83655c43184b56.

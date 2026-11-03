@@ -19,6 +19,7 @@ The offline harness copies pure timestamp parsing and replaces external HTTP wit
 a panic fake. It does not execute view/Codex or native Windows APIs. Its result
 is deliberately not presented as the full project test suite.
 
-Source changes are uncommitted. Fork creation is unavailable in the GitHub
-connector, browser automation fails, and the requested fork is absent. SSH
-authentication works as gnevesx. Do not claim a push until remote refs are verified.
+Fork verified at https://github.com/gnevesx/claude-codex-taskbar.
+Source checkpoints are published to feat/claude-model-weekly-limits.
+Native acceptance is pending by the user's explicit instruction.
+No PR has been opened. Internal TLC notes belong only in this work branch.

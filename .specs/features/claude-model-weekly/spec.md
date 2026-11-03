@@ -40,24 +40,21 @@ Acceptance Criteria:
 | CCT-07 | AC7 Codex and strip regression | Existing parsers and strip | Full tests pending |
 
 ## Execution Plan
-1. Implement the issue's required model usage tooltip end to end with parser, aging,
-   translations, fixtures, tests, and concise docs in one focused feature commit.
-   Files: src/limits/{mod,claude,codex,state,keepalive,worker}.rs;
-   src/ui/view.rs; src/ui/view/claude_tests.rs; src/i18n.rs;
-   tests/fixtures/claude_usage_models.json; README.md; docs/claude-usage.md.
-   Gate: fmt, Windows-target clippy, full tests under Wine, release build.
-   Commit: feat(claude): show per-model weekly limits and extra usage.
+Five atomic source checkpoints are defined in tasks.md. Each is checked in an
+isolated staged tree and pushed immediately after its commit. Native acceptance
+is deferred to the user's Windows by explicit request. Internal TLC notes travel
+in this fork work branch; omit them from the eventual upstream PR.
 
 ## Status
 Draft implementation exists. Formatting and Windows GNU clippy pass. Offline
 parser/state checks: 29 passed, 1 upstream live test ignored; five mutations killed
-by an independent reviewer. Full Windows GNU execution/build are in progress.
-Native MSVC/Windows visual QA and fork/commit/push/PR remain pending.
+by an independent reviewer. Windows GNU release build passed; full Wine execution failed during bootstrap.
+Native MSVC/Windows visual QA remains pending; source checkpoints are published to the verified fork. No PR is open.
 
 ## User-directed native handoff
 On 2026-11-03 the user explicitly requested publication to their own fork only,
 then native Windows testing on this same PC. Opening a PR is deferred until those
 checks pass. Cross compilation is supporting evidence, not native QA.
-The fork does not exist yet; do not invent a successful push or create an upstream PR.
+The fork is confirmed. Verify remote refs after publishing. Open no upstream PR before native acceptance.
 Windows instructions: docs/windows-validation.md. Internal TLC/style notes must
 remain available for the Windows handoff without being added to the eventual PR.
