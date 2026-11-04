@@ -8,7 +8,8 @@ from Windows. Do not merge this guide branch or include this file in the feature
 - Upstream: https://github.com/chiarorosa/claude-codex-taskbar
 - Fork: https://github.com/gnevesx/claude-codex-taskbar
 - Implementation branch: `feat/reset-countdown`
-- Expected implementation commit: `5c8bef558a1712a1956dee38b73b59dacd375cfa`
+- Expected implementation commit: `d3373ef021c4c027b54d7066ccb480b1e52d178f`
+- Existing PR: https://github.com/chiarorosa/claude-codex-taskbar/pull/30
 - Issue: https://github.com/chiarorosa/claude-codex-taskbar/issues/14
 - Maintainer assignment: https://github.com/chiarorosa/claude-codex-taskbar/issues/14#issuecomment-6631692866
 
@@ -21,9 +22,9 @@ Validate the implementation on native Windows using the existing checkout and
 the project's MSVC setup in CONTRIBUTING.md. Preserve any local work before
 switching branches. Work on `feat/reset-countdown`, not this guide branch.
 Read AGENTS.md and follow the existing code style. Do not remove, ignore or weaken
-tests. Push any necessary fixes to the user's fork. Do not open a PR until native
-tests and actual taskbar hover validation are recorded. Do not include this guide
-in the contribution; report validation results in the future PR description.
+tests. Push any necessary fixes to the user's fork, updating the existing PR #30.
+Do not open another PR or merge it; the maintainer handles acceptance. Do not include
+this guide in the contribution; keep validation results separate from product code.
 
 ## Update the checkout
 
@@ -58,8 +59,9 @@ existing live tests ignored by default; this is not a claim they all executed.
 - Record Windows build, UI language, display scaling and taskbar alignment.
 - Keep percentages and absolute local reset times; append the countdown to
   known future reset times for Claude/Codex, 5h/weekly and model-specific windows.
-- Expected examples: English `45m`, `1h 12m`, `2d 3h`; pt-BR `45min`,
-  `1h 12min`, `2d 3h`, with the corresponding localized reset phrase.
+- Expected text: `resets at 14:20 (in 1h 12m)` / `reseta às 14:20 (em 1h 12min)`.
+- Durations: EN `45m`, `1h 12m`, `2d 3h`; pt-BR `45min`, `1h 12min`, `2d 3h`.
+  Omit a zero second unit: `1h`, `7d`; do not repeat the reset verb.
 - Positive seconds round up to minutes; durations of at least 24 rounded hours
   use days/hours and omit residual minutes.
 - Missing, elapsed and unrepresentable reset intervals produce no countdown.
@@ -79,6 +81,14 @@ existing live tests ignored by default; this is not a claim they all executed.
   release build passed; that release executable is 913,408 bytes.
 - Independent local TLC review passed 7/7 acceptance criteria and detected all
   seven deliberately injected behavior faults in isolated scratch copies.
-- Native Windows/MSVC execution, real locale/timezone output and actual hover
-  remain pending. Cross-compilation and the Linux runner do not establish these.
+- These Linux checks do not establish native Windows execution or actual hover.
+
+## Current native Windows CI
+
+The review fix d3373ef passed the PR's Windows/MSVC CI: 165 tests (148 + 17),
+the same six existing ignores, formatting, Clippy and release all passed.
+MSVC executable: 803,840 bytes, below 1,000,000.
+Run: https://github.com/chiarorosa/claude-codex-taskbar/actions/runs/41852124622.
+Actual hover was validated on prior head 5c8bef5; no new interactive hover result
+is claimed for d3373ef. Recheck its shorter parenthetical text when inspecting it.
 
