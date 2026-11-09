@@ -9,9 +9,11 @@ guide on top of the feature. Build/test `feat/limit-crossings`, not the handoff 
 - Fork: https://github.com/gnevesx/claude-codex-taskbar.
 - Issue: https://github.com/chiarorosa/claude-codex-taskbar/issues/15.
 - Pablo assigned slice 1, accepted by gnevesx. Pure threshold logic and Config only.
-- Feature branch: `feat/limit-crossings`, head `d1c95c8` (base `9f49b33`, v0.3.0).
+- Feature branch: `feat/limit-crossings`, head `291aaf9` (base `9f49b33`, v0.3.0).
 - Commits: `fd9a629` configuration; `d1c95c8` pure crossings and regression tests.
-- No upstream PR has been opened. Keep this guide outside any future PR.
+- Review fix: `291aaf9` tolerates estimated reset timestamp jitter.
+- Existing PR: https://github.com/chiarorosa/claude-codex-taskbar/pull/73.
+- Keep this guide outside the feature PR.
 
 ## Behavior under test
 
@@ -21,19 +23,21 @@ guide on top of the feature. Build/test `feat/limit-crossings`, not the handoff 
 - Only ProviderStatus::Ok can update history or emit events. Other states preserve it.
 - First reading seeds a quiet baseline; 70 -> 97 emits both 80 and 95 afterward.
 - Each threshold emits once per window despite percentage dips or missing data.
-- A changed known resets_at rearms only that window; absent metadata never rearms.
+- A known resets_at must advance by more than 60 seconds to rearm that window;
+  ±1s jitter, backward shifts and absent metadata never rearm.
 - Five-hour/weekly windows and caller-owned provider histories are independent.
 - There is no new notification UI in this slice; balloon/Settings/DND are slice 2.
 
 ## Completed Linux checks
 
-Actual-source portable tests: 40 passed, including all new Config/engine tests.
+Actual-source portable tests: 43 passed, including all new Config/engine tests.
 Full format, Clippy -D warnings, Windows GNU test compilation and release passed.
 GNU release: 951,296 bytes. Eight existing live tests remain ignored; none added.
-This does not establish native Windows/MSVC success.
-Fork Actions run 42641727703 could not start due to an account billing lock:
-https://github.com/gnevesx/claude-codex-taskbar/actions/runs/42641727703.
-No test steps ran there; do not report that run as passed or as a code regression.
+Native Windows/MSVC CI also passed for 291aaf9: 234 tests, zero failures, the same
+eight live ignores; fmt/Clippy/release/size passed. MSVC release: 842,240 bytes.
+https://github.com/chiarorosa/claude-codex-taskbar/actions/runs/42670947025.
+Earlier manual Windows validation at d1c95c8 passed231 tests and release841216B;
+that earlier result applies only to the old head. Current native evidence is CI.
 
 ## Get an isolated copy on Windows
 
@@ -47,7 +51,7 @@ git rev-parse HEAD
 rustc -Vv
 ```
 
-Confirm HEAD starts with d1c95c8 and Rust's host is x86_64-pc-windows-msvc.
+Confirm HEAD starts with 291aaf9 and Rust's host is x86_64-pc-windows-msvc.
 
 ## Run the native checks
 
@@ -62,8 +66,8 @@ if ($size -gt 1000000) { throw "Release exceeds the 1 MB budget" }
 git status --short
 ```
 
-Expected test inventory: 239 test functions, 231 passing and eight existing live
-ignores (214 unit + 17 workflow tests). Record actual output rather than assuming it.
+Expected test inventory: 242 test functions, 234 passing and eight existing live
+ignores (217 unit + 17 workflow tests). Record actual output rather than assuming it.
 No new visual behavior needs a hover or popup check for this logic-only slice.
 
 ## Record and continue
@@ -72,5 +76,5 @@ Record exact HEAD, Windows build, Rust host/version, each command's result,
 passed/ignored counts and native MSVC executable size. Investigate any failure;
 preserve existing tests and assertions. Source changes must be committed and pushed
 to the feature branch. Keep guide/process notes out of its diff.
-After native checks pass, report to Guilherme before opening an upstream PR.
-A future PR references `Refs #15` because notification UI remains a separate slice.
+Record any additional native checks on existing PR #73. Merge stays with Pablo.
+The PR uses `Refs #15` because notification UI remains a separate slice.
